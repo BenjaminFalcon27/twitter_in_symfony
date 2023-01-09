@@ -46,7 +46,7 @@ class UserController extends AbstractController
         // return $this->render('product/show.html.twig', ['product' => $product]);
     }
 
-    #[Route('/user/edit/{id}', name: 'user_edit')]
+    #[Route('/user/edit/{ }', name: 'user_edit')]
     public function update(ManagerRegistry $doctrine, int $id): Response
     {
         $entityManager = $doctrine->getManager();
