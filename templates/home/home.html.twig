@@ -1,3 +1,9 @@
+{% block header %}
+    <head>
+          <title>Twitter</title>
+        <script src="https://kit.fontawesome.com/12bd49648b.js" crossorigin="anonymous"></script>
+    </head>
+{% endblock %}
 {% block body %}
     <div class="container">
         <div class="row">
@@ -8,6 +14,7 @@
                         <div class="card mb-3">
                             <div class="card-body">
                                 {# {{ message.text }} #}
+                                <i class="fa-brands fa-twitter"></i>
                                 <a>Message</a>
                             </div>
                         </div>
