@@ -1,2 +1,27 @@
-<h1>{{title}}</h1>
-<h3>{{subtitle}}</h3>
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <h1>Chat</h1>
+                <div id="chat-messages" class="mb-3">
+                    {# {% for message in messages %} #}
+                        <div class="card mb-3">
+                            <div class="card-body">
+                                {# {{ message.text }} #}
+                                <a>Message</a>
+                            </div>
+                        </div>
+                    {# {% endfor %} #}
+                </div>
+                <form id="chat-form">
+                    <div class="form-group">
+                        <label for="message-text">Message</label>
+                        <textarea class="form-control" id="message-text" rows="3"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Envoyer</button>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
