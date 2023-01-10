@@ -25,6 +25,10 @@ class UserController extends AbstractController
 
         $user = $this->getUser();
 
+        if (!$product) {
+            throw $this->createNotFoundException('Cet utilisateur n\'existe pas');
+        }
+
         if($user && in_array('ROLE_ADMIN', $user->getRoles())){
             return $this->render('user/index.html.twig', [
                 'users' => $userRepository->findAll(),

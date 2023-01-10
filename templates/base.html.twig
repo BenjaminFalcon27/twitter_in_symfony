@@ -13,7 +13,7 @@
     <body>
         <nav class="navbar navbar-light bg-light">
             <a class="navbar-brand" href="{{ path('home') }}">Accueil</a>
-            <i class="fa-brands fa-twitter fa-2xl"></i>
+            <i id="nav-logo" class="fa-brands fa-twitter fa-2xl"></i>
             {% if app.user %}
                 <div>
                     Bonjour {{ app.user.username }} <a class="btn btn-sm btn-danger" href="{{ path('app_logout') }}">Déconnexion</a>
