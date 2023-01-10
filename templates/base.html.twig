@@ -16,7 +16,7 @@
             <a class="navbar-brand" href="{{ path('home') }}">Accueil</a>
             {% if app.user %}
                 {% if is_granted('ROLE_ADMIN') %}
-                        <a class="btn btn-outline-warning" href="{{ path('admin') }}">Page admin</a>
+                        <a class="btn btn-outline-warning" href="{{ path('app_user_index') }}">Page admin</a>
                 {% endif %}
                 <div>
                         Bonjour {{ app.user.username }} <a class="btn btn-sm btn-danger" href="{{ path('app_logout') }}">Déconnexion</a>
