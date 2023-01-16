@@ -9,10 +9,12 @@ use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\HttpFoundation\Session\Session;
+
 
 
 
@@ -24,12 +26,9 @@ class UserController extends AbstractController
     {
 
         $user = $this->getUser();
-
-        if (!$product) {
-            throw $this->createNotFoundException('Cet utilisateur n\'existe pas');
-        }
-
-        if($user && in_array('ROLE_ADMIN', $user->getRoles())){
+        if (!$user) {
+            throw $this->createNotFoundException('Cet utilisateur nexiste pas');
+        }elseif($user && in_array('ROLE_ADMIN', $user->getRoles())){
             return $this->render('user/index.html.twig', [
                 'users' => $userRepository->findAll(),
             ]);
@@ -68,6 +67,10 @@ class UserController extends AbstractController
     #[Route('/{id}', name: 'app_user_show', methods: ['GET'])]
     public function show(User $user): Response
     {
+
+        if (!$user) {
+            throw $this->createNotFoundException('Cet utilisateur n\'existe pas');
+        }
         return $this->render('user/show.html.twig', [
             'user' => $user,
         ]);
