@@ -1,29 +1,39 @@
 {% extends 'base.html.twig' %}
 {% block body %}
-    <div class="container">
-        <div class="row">
-            <div class="col-md-8">
-                <h1>Chat</h1>
-                <div id="chat-messages" class="mb-3">
-                    {# {% for message in messages %} #}
-                        <div class="card mb-3">
-                            <div class="card-body">
-                                {# {{ message.text }} #}
-                                <i class="fa-brands fa-twitter"></i>
-                                <a>Message</a>
-                            </div>
-                        </div>
-                    {# {% endfor %} #}
-                </div>
-                <form id="chat-form">
-                    <div class="form-group">
-                        <label for="message-text">Message</label>
-                        <textarea class="form-control" id="message-text" rows="3"></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Envoyer</button>
-                </form>
-            </div>
-        </div>
-    </div>
-{% endblock %}
+	<div class="container-fluid">
+		<div class="row-fluid">
+			<div class="col-12">
+				<div class="row">
+					<div class="col-2"></div>
+					<div class="col-8">
+						<div class="row">
+							<h1>Chat</h1>
+							<div
+								id="chat-messages" class="mb-3">
+								{# {% for message in messages %} #}
+								<div class="card mb-3">
+									<div
+										class="card-body">
+										{# {{ message.text }} #}
+										<i class="fa-brands fa-twitter"></i>
+										<a>Message</a>
+									</div>
+								</div>
+								{# {% endfor %} #}
+							</div>
+							<form id="chat-form">
+								<div class="form-group">
+									<label for="message-text">Message</label>
+									<textarea class="form-control" id="message-text" rows="3"></textarea>
+								</div>
+								<button type="submit" class="btn btn-primary">Envoyer</button>
+							</form>
+						</div>
+					</div>
+					<div class="col-2"></div>
+				</div>
+			</div>
+		</div>
+	</div>
 
+{% endblock %}
