@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>
-			{% block title %}Welcome!
+			{% block title %}Accueil
 			{% endblock %}
 		</title>
 		{% block stylesheets %}
@@ -22,9 +22,13 @@
 				{% if is_granted('ROLE_ADMIN') %}
 					<a class="btn btn-outline-warning" href="{{ path('app_user_index') }}">Page admin</a>
 				{% endif %}
-				<div>
-					Bonjour
-					{{ app.user.username }}
+				<div class="text-light">
+					<p class="mr-3 d-inline">
+						Bonjour
+						<strong>
+							{{ app.user.username }}
+						</strong>
+					</p>
 					<a class="btn btn-sm btn-danger" href="{{ path('app_logout') }}">Déconnexion</a>
 				</div>
 			{% else %}
