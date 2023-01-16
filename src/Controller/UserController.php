@@ -22,21 +22,11 @@ use Symfony\Component\HttpFoundation\Session\Session;
 class UserController extends AbstractController
 {
     #[Route('/', name: 'app_user_index', methods: ['GET'])]
-    public function index(UserRepository $userRepository, Session $session): Response
+    public function index(UserRepository $userRepository): Response
     {
-
-        $user = $this->getUser();
-        if (!$user) {
-            throw $this->createNotFoundException('Cet utilisateur nexiste pas');
-        }elseif($user && in_array('ROLE_ADMIN', $user->getRoles())){
-            return $this->render('user/index.html.twig', [
-                'users' => $userRepository->findAll(),
-            ]);
-
-            $session->set("message", "Vous n'avez pas le droit d'acceder à la page admin vous avez été redirigé sur cette page");
-            return $this->renderToRoute('home');
-        } 
-        
+        return $this->render('user/index.html.twig', [
+            'users' => $userRepository->findAll(),
+        ]);
     }
 
     #[Route('/new', name: 'app_user_new', methods: ['GET', 'POST'])]
@@ -67,10 +57,9 @@ class UserController extends AbstractController
     #[Route('/{id}', name: 'app_user_show', methods: ['GET'])]
     public function show(User $user): Response
     {
-
-        if (!$user) {
-            throw $this->createNotFoundException('Cet utilisateur n\'existe pas');
-        }
+        // if (!$user) {
+        //     throw $this->createNotFoundException('Cet utilisateur n\'existe pas');
+        // }
         return $this->render('user/show.html.twig', [
             'user' => $user,
         ]);
