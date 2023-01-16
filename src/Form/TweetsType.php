@@ -12,10 +12,9 @@ class TweetsType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('content')
-            ->add('user_id')
-            ->add('created_at')
-            ->add('updated_at')
+            ->add('createdAt')
+            ->add('updatedAt')
+            ->add('userId')
         ;
     }
 

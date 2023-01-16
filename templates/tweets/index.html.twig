@@ -9,10 +9,8 @@
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Content</th>
-                <th>User_id</th>
-                <th>Created_at</th>
-                <th>Updated_at</th>
+                <th>CreatedAt</th>
+                <th>UpdatedAt</th>
                 <th>actions</th>
             </tr>
         </thead>
@@ -20,8 +18,6 @@
         {% for tweet in tweets %}
             <tr>
                 <td>{{ tweet.id }}</td>
-                <td>{{ tweet.content }}</td>
-                <td>{{ tweet.userId }}</td>
                 <td>{{ tweet.createdAt ? tweet.createdAt|date('Y-m-d H:i:s') : '' }}</td>
                 <td>{{ tweet.updatedAt ? tweet.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
                 <td>
@@ -31,7 +27,7 @@
             </tr>
         {% else %}
             <tr>
-                <td colspan="6">no records found</td>
+                <td colspan="4">no records found</td>
             </tr>
         {% endfor %}
         </tbody>
