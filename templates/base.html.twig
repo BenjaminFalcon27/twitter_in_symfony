@@ -8,7 +8,7 @@
 		</title>
 		{% block stylesheets %}
 			{# Tab icon  #}
-		 	<link rel=icon href=https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15/svgs/brands/twitter.svg>
+		 	<link rel=icon href=https://upload.wikimedia.org/wikipedia/commons/4/4f/Twitter-logo.svg>
 			<link rel="stylesheet" href="https://bootswatch.com/4/yeti/bootstrap.min.css">
 			<link rel="stylesheet" href="../public/styles/style.css">
 		{% endblock %}
@@ -30,7 +30,7 @@
 							{{ app.user.username }}
 						</strong>
 					</p>
-					<a class="btn btn-sm btn-danger" href="{{ path('app_logout') }}">Déconnexion</a>
+					<a class="btn btn-sm btn-danger" href="{{ path('app_logout') }}"><i class="fa-solid fa-right-from-bracket"></i></a>
 				</div>
 			{% else %}
 				<div>
